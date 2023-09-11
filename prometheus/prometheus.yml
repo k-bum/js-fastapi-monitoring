@@ -8,5 +8,5 @@ scrape_configs:
   honor_labels: true
   static_configs:
   - targets:
-    - host.docker.internal:8000  # metrics from model
+    - docker.for.mac.localhost:8000  # metrics from model
 
