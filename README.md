@@ -7,7 +7,7 @@
 git clone https://github.com/k-bum/js-fastapi-monitoring.git
 ```
 
-1. FastAPI Serving API 생성 / FastAPI-Prometheus Metric 수집
+2. FastAPI Serving API 생성 / FastAPI-Prometheus Metric 수집
 
 ```bash
 docker-compose build web && docker-compose up -d
@@ -15,7 +15,7 @@ docker-compose build web && docker-compose up -d
 
 - [http://localhost:8000](http://localhost:8000) 접속
 - [http://localhost:8000/metrics](http://localhost:8000/metrics) 접속
-1. Prometheus-Grafana 연동
+3. Prometheus-Grafana 연동
 - prometheus.yml 을 volume 으로 참조해서 실행
 
 ```bash
@@ -34,7 +34,7 @@ docker run -d --name grafana-docker -ㅔ 3000:3000 grafana/grafana
     - prometheus 연결 확인
         - [Connection]-[Data sources]-[Add data source]-[Prometheus]
         - [http://docker.for.mac.localhost:8000](http://docker.for.mac.localhost:8000) url 설정
-1. Locust 를 이용한 Simulation 및 Dashboard 생성
+4. Locust 를 이용한 Simulation 및 Dashboard 생성
 
 ```bash
 cd locust
