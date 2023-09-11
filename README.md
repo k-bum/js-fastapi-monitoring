@@ -45,5 +45,5 @@ docker run -d --name locust-container -p 8089:8089 locust-image
 - [http://localhost:8089](http://localhost:8089) 접속
     - [http://docker.for.mac.localhost:8000](http://docker.for.mac.localhost:8000) url 설정
 - [http://localhost:3000](http://localhost:3000) 접속
-    - [+] → [Import via panel json] 에 locust. json 파일 내용 입력 후 Load
+    - [+] → [Import via panel json] 에 locust/locust. json 파일 내용 입력 후 Load
 
