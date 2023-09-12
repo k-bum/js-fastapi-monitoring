@@ -1,5 +1,4 @@
 # Jenkins-fastapi monitoring
-![Untitled](https://github.com/k-bum/js-fastapi-monitoring/assets/96854885/9fc5da48-e923-45b1-9496-43a22a0b5d7f)
 
 1. Gitclone
 
@@ -45,5 +44,33 @@ docker run -d --name locust-container -p 8089:8089 locust-image
 - [http://localhost:8089](http://localhost:8089) 접속
     - [http://docker.for.mac.localhost:8000](http://docker.for.mac.localhost:8000) url 설정
 - [http://localhost:3000](http://localhost:3000) 접속
-    - [+] → [Import via panel json] 에 locust/locust. json 파일 내용 입력 후 Load
+    - [+] → [Import via panel json] 에 locust. json 파일 내용 입력 후 Load
+5. Jenkins pipeline 생성
+- Jenkins 시작
 
+```bash
+brew services start jenkins-lts
+```
+
+- [새로운 item] - [Pipeline : monitoring-pipeline]
+- Github url 추가 및 'GitHub hook trigger for GITScm polling' 선택
+    - Github webhook 생성
+    - Github Repository - Settings - Webhooks - Add webhook
+    - Payload url 설정 및 Content type : application/json 설정
+- [train.py](http://train.py) 코드 변경 후 push
+6. Jenkins monitoring
+- Jenkins Plugin 에서 Prometheus 추가
+    - 환경설정 - Prometheus 확인
+        - Collecting metrics period in seconds : 120 → 5 변경
+
+```bash
+docker restart prom-docker
+```
+
+7. Grafana dashboard
+    - [https://grafana.com/grafana/dashboards/](https://grafana.com/grafana/dashboards/) 접속
+    - Jenkins 검색
+    - [Jenkins: Performance and Health Overview](https://grafana.com/grafana/dashboards/9964) 선택
+    - ID 복사
+    - [+] - [Import dashboard] - [Import via grafana.com] - ID 입력
+    - data source - prometheus 선택
