@@ -1,5 +1,7 @@
 # Jenkins-fastapi monitoring
 
+![Untitled](https://github.com/k-bum/js-fastapi-monitoring/assets/96854885/1397d2b3-ed69-49e2-9301-a84181bc61d6)
+
 1. Gitclone
 
 ```bash
