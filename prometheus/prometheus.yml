@@ -10,3 +10,8 @@ scrape_configs:
   - targets:
     - docker.for.mac.localhost:8000  # metrics from model
 
+- job_name: 'jenkins'
+  metrics_path: /prometheus/
+  static_configs:
+    - targets:
+      - docker.for.mac.localhost:8080
