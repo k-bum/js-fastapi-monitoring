@@ -27,7 +27,7 @@ docker run -d --name prom-docker -p 9090:9090 -v ${pwd}/promehteus/prometheus.ym
 - Grafana 실행
 
 ```bash
-docker run -d --name grafana-docker -ㅔ 3000:3000 grafana/grafana
+docker run -d --name grafana-docker -p 3000:3000 grafana/grafana
 ```
 
 - [http://localhost:3000](http://localhost:9090/targets) 접속
